@@ -1,0 +1,914 @@
+import '/flutter_flow/flutter_flow_choice_chips.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import '/flutter_flow/form_field_controller.dart';
+import 'dart:ui';
+import 'package:easy_debounce/easy_debounce.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import 'adicionar_medicamento_model.dart';
+export 'adicionar_medicamento_model.dart';
+
+/// Tela para adicionar o medicamento
+class AdicionarMedicamentoWidget extends StatefulWidget {
+  const AdicionarMedicamentoWidget({super.key});
+
+  @override
+  State<AdicionarMedicamentoWidget> createState() =>
+      _AdicionarMedicamentoWidgetState();
+}
+
+class _AdicionarMedicamentoWidgetState
+    extends State<AdicionarMedicamentoWidget> {
+  late AdicionarMedicamentoModel _model;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => AdicionarMedicamentoModel());
+
+    _model.textController1 ??= TextEditingController();
+    _model.textFieldFocusNode1 ??= FocusNode();
+
+    _model.textController2 ??= TextEditingController();
+    _model.textFieldFocusNode2 ??= FocusNode();
+
+    _model.textController3 ??= TextEditingController();
+    _model.textFieldFocusNode3 ??= FocusNode();
+
+    _model.textController4 ??= TextEditingController();
+    _model.textFieldFocusNode4 ??= FocusNode();
+
+    _model.textController5 ??= TextEditingController();
+    _model.textFieldFocusNode5 ??= FocusNode();
+
+    _model.textController6 ??= TextEditingController();
+    _model.textFieldFocusNode6 ??= FocusNode();
+
+    _model.textController7 ??= TextEditingController();
+    _model.textFieldFocusNode7 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.dispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+        FocusManager.instance.primaryFocus?.unfocus();
+      },
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        appBar: AppBar(
+          backgroundColor: Color(0xFF691980),
+          automaticallyImplyLeading: false,
+          leading: FlutterFlowIconButton(
+            borderRadius: 8,
+            buttonSize: 40,
+            fillColor: FlutterFlowTheme.of(context).primary,
+            icon: Icon(
+              Icons.arrow_back,
+              color: FlutterFlowTheme.of(context).info,
+              size: 24,
+            ),
+            onPressed: () async {
+              context.pushNamed(
+                'HomePage',
+                extra: <String, dynamic>{
+                  kTransitionInfoKey: TransitionInfo(
+                    hasTransition: true,
+                    transitionType: PageTransitionType.fade,
+                    duration: Duration(milliseconds: 0),
+                  ),
+                },
+              );
+            },
+          ),
+          title: Text(
+            'Adicionar Medicamento',
+            style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  fontFamily: 'Inter Tight',
+                  color: FlutterFlowTheme.of(context).primaryBackground,
+                  letterSpacing: 0.0,
+                ),
+          ),
+          actions: [],
+          centerTitle: false,
+          elevation: 2,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(24, 16, 24, 16),
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Material(
+                    color: Colors.transparent,
+                    elevation: 2,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    child: Container(
+                      width: MediaQuery.sizeOf(context).width,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(20, 20, 20, 20),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'Detalhes do Medicamento',
+                              style: FlutterFlowTheme.of(context)
+                                  .headlineSmall
+                                  .override(
+                                    fontFamily: 'Inter Tight',
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    letterSpacing: 0.0,
+                                  ),
+                            ),
+                            TextFormField(
+                              controller: _model.textController1,
+                              focusNode: _model.textFieldFocusNode1,
+                              autofocus: false,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Nome do Medicamento',
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintText: 'Ex: Paracetamol',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE0E0E0),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFF0F0F0),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: 1,
+                              validator: _model.textController1Validator
+                                  .asValidator(context),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Frequência',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ].divide(SizedBox(height: 8)),
+                            ),
+                            Expanded(
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 8, 0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        FFAppState().diasBtn = true;
+                                      },
+                                      text: 'Diário',
+                                      options: FFButtonOptions(
+                                        height: 40,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16, 0, 16, 0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0, 0, 0, 0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Inter Tight',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 0,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 8, 0),
+                                    child: FFButtonWidget(
+                                      onPressed: () async {
+                                        FFAppState().semanaBtn = true;
+                                      },
+                                      text: 'Semanal',
+                                      options: FFButtonOptions(
+                                        height: 40,
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            16, 0, 16, 0),
+                                        iconPadding:
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0, 0, 0, 0),
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .titleSmall
+                                            .override(
+                                              fontFamily: 'Inter Tight',
+                                              color: Colors.white,
+                                              letterSpacing: 0.0,
+                                            ),
+                                        elevation: 0,
+                                        borderRadius: BorderRadius.circular(8),
+                                      ),
+                                    ),
+                                  ),
+                                  FFButtonWidget(
+                                    onPressed: () async {
+                                      FFAppState().mesBtn = true;
+                                    },
+                                    text: 'Mensal',
+                                    options: FFButtonOptions(
+                                      height: 40,
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          16, 0, 16, 0),
+                                      iconPadding:
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              0, 0, 0, 0),
+                                      color:
+                                          FlutterFlowTheme.of(context).primary,
+                                      textStyle: FlutterFlowTheme.of(context)
+                                          .titleSmall
+                                          .override(
+                                            fontFamily: 'Inter Tight',
+                                            color: Colors.white,
+                                            letterSpacing: 0.0,
+                                          ),
+                                      elevation: 0,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Intervalo',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyLarge
+                                      .override(
+                                        fontFamily: 'Inter',
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ].divide(SizedBox(height: 8)),
+                            ),
+                            FlutterFlowChoiceChips(
+                              options: [
+                                ChipData('A cada 4 horas'),
+                                ChipData('A cada 6 horas'),
+                                ChipData('A cada 12 horas'),
+                                ChipData('Personalizado')
+                              ],
+                              onChanged: (val) => safeSetState(() =>
+                                  _model.choiceChipsValue = val?.firstOrNull),
+                              selectedChipStyle: ChipStyle(
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).primary,
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context).info,
+                                      letterSpacing: 0.0,
+                                    ),
+                                iconColor: Color(0xFFE0E0E0),
+                                iconSize: 20,
+                                elevation: 0,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              unselectedChipStyle: ChipStyle(
+                                backgroundColor: Color(0xFFE0E0E0),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      color: FlutterFlowTheme.of(context)
+                                          .secondaryText,
+                                      letterSpacing: 0.0,
+                                    ),
+                                iconColor:
+                                    FlutterFlowTheme.of(context).secondaryText,
+                                iconSize: 20,
+                                elevation: 0,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              chipSpacing: 8,
+                              rowSpacing: 8,
+                              multiselect: false,
+                              alignment: WrapAlignment.start,
+                              controller: _model.choiceChipsValueController ??=
+                                  FormFieldController<List<String>>(
+                                [],
+                              ),
+                              wrapped: true,
+                            ),
+                            TextFormField(
+                              controller: _model.textController2,
+                              focusNode: _model.textFieldFocusNode2,
+                              onChanged: (_) => EasyDebounce.debounce(
+                                '_model.textController2',
+                                Duration(milliseconds: 2000),
+                                () async {
+                                  FFAppState().intervaloMinutos =
+                                      _model.textController2.text;
+                                },
+                              ),
+                              autofocus: false,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Horários Personalizados',
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintText: 'Ex: 08:00, 14:00, 20:00',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE0E0E0),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFF0F0F0),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: 1,
+                              validator: _model.textController2Validator
+                                  .asValidator(context),
+                            ),
+                            TextFormField(
+                              controller: _model.textController3,
+                              focusNode: _model.textFieldFocusNode3,
+                              autofocus: false,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Dosagem',
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintText: 'Ex: 1 comprimido, 5ml, etc.',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE0E0E0),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFF0F0F0),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: 1,
+                              validator: _model.textController3Validator
+                                  .asValidator(context),
+                            ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Container(
+                                  width: 170,
+                                  height: 100,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                  ),
+                                  child: Stack(
+                                    children: [
+                                      if (FFAppState().diasBtn)
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.29, 0.28),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 10, 0),
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.textController4,
+                                              focusNode:
+                                                  _model.textFieldFocusNode4,
+                                              autofocus: false,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText: 'Quantidade de Dias',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintText: 'Ex: 15, 5, etc.',
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFE0E0E0),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                filled: true,
+                                                fillColor: Color(0xFFF0F0F0),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              minLines: 1,
+                                              validator: _model
+                                                  .textController4Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      if (FFAppState().mesBtn)
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0.29, 0.28),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 10, 0),
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.textController5,
+                                              focusNode:
+                                                  _model.textFieldFocusNode5,
+                                              autofocus: false,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText:
+                                                    'Quantidade de Meses',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintText: 'Ex: 15, 5, etc.',
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFE0E0E0),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                filled: true,
+                                                fillColor: Color(0xFFF0F0F0),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              minLines: 1,
+                                              validator: _model
+                                                  .textController5Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                      if (FFAppState().semanaBtn)
+                                        Align(
+                                          alignment:
+                                              AlignmentDirectional(0, 0.17),
+                                          child: Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0, 0, 10, 0),
+                                            child: TextFormField(
+                                              controller:
+                                                  _model.textController6,
+                                              focusNode:
+                                                  _model.textFieldFocusNode6,
+                                              autofocus: false,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                labelText:
+                                                    'Quantidade de Semanas',
+                                                labelStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                hintText: 'Ex: 15, 5, etc.',
+                                                hintStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Inter',
+                                                          letterSpacing: 0.0,
+                                                        ),
+                                                enabledBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0xFFE0E0E0),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                focusedBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                errorBorder: OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                focusedErrorBorder:
+                                                    OutlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                    color: Color(0x00000000),
+                                                    width: 1.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(8),
+                                                ),
+                                                filled: true,
+                                                fillColor: Color(0xFFF0F0F0),
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyLarge
+                                                      .override(
+                                                        fontFamily: 'Inter',
+                                                        letterSpacing: 0.0,
+                                                      ),
+                                              minLines: 1,
+                                              validator: _model
+                                                  .textController6Validator
+                                                  .asValidator(context),
+                                            ),
+                                          ),
+                                        ),
+                                    ],
+                                  ),
+                                ),
+                                FFButtonWidget(
+                                  onPressed: () {
+                                    print('Button pressed ...');
+                                  },
+                                  text: 'Uso Contínuo',
+                                  options: FFButtonOptions(
+                                    height: 40,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        16, 0, 16, 0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 0, 0),
+                                    color: FlutterFlowTheme.of(context).primary,
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .titleSmall
+                                        .override(
+                                          fontFamily: 'Inter Tight',
+                                          color: Colors.white,
+                                          letterSpacing: 0.0,
+                                        ),
+                                    elevation: 0,
+                                    borderRadius: BorderRadius.circular(8),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            TextFormField(
+                              controller: _model.textController7,
+                              focusNode: _model.textFieldFocusNode7,
+                              autofocus: false,
+                              obscureText: false,
+                              decoration: InputDecoration(
+                                labelText: 'Hora da Primeira Dose',
+                                labelStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                hintText: 'Ex: 08:00, 14:00, 20:00',
+                                hintStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Inter',
+                                      letterSpacing: 0.0,
+                                    ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0xFFE0E0E0),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                errorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                focusedErrorBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                    color: Color(0x00000000),
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                                filled: true,
+                                fillColor: Color(0xFFF0F0F0),
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyLarge
+                                  .override(
+                                    fontFamily: 'Inter',
+                                    letterSpacing: 0.0,
+                                  ),
+                              minLines: 1,
+                              validator: _model.textController7Validator
+                                  .asValidator(context),
+                            ),
+                          ].divide(SizedBox(height: 20)),
+                        ),
+                      ),
+                    ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: () async {
+                      context.pushNamed(
+                        'GerenciarAlarmes',
+                        queryParameters: {
+                          'nomeMedicamento': serializeParam(
+                            _model.textController1.text,
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    text: 'Salvar Medicamento',
+                    options: FFButtonOptions(
+                      width: MediaQuery.sizeOf(context).width,
+                      height: 56,
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      iconPadding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 0),
+                      color: Color(0xFF691980),
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleMedium.override(
+                                fontFamily: 'Inter Tight',
+                                color: Colors.white,
+                                letterSpacing: 0.0,
+                              ),
+                      elevation: 2,
+                      borderRadius: BorderRadius.circular(28),
+                    ),
+                  ),
+                ].divide(SizedBox(height: 24)),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
